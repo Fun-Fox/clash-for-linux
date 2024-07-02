@@ -38,6 +38,7 @@ cat $Temp_Dir/proxy.txt >> $Temp_Dir/config.yaml
 
 # 启动Clash服务，并通过nohup重定向输出到日志文件，同时在终端显示启动状态
 echo "正在启动Clash服务..."
+chmod 777 $Server_Dir/clash-linux-amd64-v1.3.5
 nohup $Server_Dir/clash-linux-amd64-v1.3.5 -d $Conf_Dir > $Log_Dir/clash.log 2>&1 &
 sleep 2 # 等待片刻以检查服务是否成功启动
 if ps aux | grep -q 'clash-linux-amd64-v1.3.5'; then
